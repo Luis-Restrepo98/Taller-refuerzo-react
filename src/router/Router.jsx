@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useReducer } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MiComponente from "../components/miComponente/MiComponente";
 import MiContador from "../components/miComponente/miContador/MiContador";
@@ -6,7 +6,16 @@ import MisProductos from "../components/miComponente/MisProductos/MisProductos";
 import DetallesProductos from "../components/miComponente/DetallesProducto/DetallesProductos";
 import Layout from "../components/layout/Layout.jsx";
 import MiContadorConUseReducer from "../components/MiContadorConUseReducer/MiContadorConUseReducer.jsx";
-import MiToDoList from "../components/MiToDoList/MiToDoList.jsx";
+import MiTodoList from "../components/MiTodoList/MiTodoList.jsx";
+import Login from "../components/login/Login.jsx";
+import PublicRoutes from "../../src/router/PublicRoutes.jsx";
+import PrivateRoutes from "../../src/router/PrivatedRoutes.jsx";
+import userLoggedReducer, {
+  userLoggedInitial,
+} from "../components/Reducer/userLoggedReducer";
+import { ChakraProvider } from "@chakra-ui/react";
+
+export const AppContext = createContext({});
 
 const Router = () => {
   const [userLogged, userLoggedDispatch] = useReducer(
@@ -14,16 +23,10 @@ const Router = () => {
     userLoggedInitial
   );
 
-  const [postState, postDispatch] = useReducer(postReducer, postInitial);
-
   const globalState = {
     userLogged: {
       userLogged,
       userLoggedDispatch,
-    },
-    postReducerInfo: {
-      postState,
-      postDispatch,
     },
   };
   return (
@@ -32,13 +35,6 @@ const Router = () => {
         <BrowserRouter>
           <Routes>
             <Route element={<Layout />}>
-              <Route
-                element={
-                  <PrivateRoutes isAuthenticate={userLogged.isAuthenticated} />
-                }
-              >
-                <Route path="/miTodoList" element={<MiToDoList />} />
-              </Route>
               <Route
                 element={
                   <PublicRoutes isAuthenticate={userLogged.isAuthenticated} />
@@ -57,6 +53,13 @@ const Router = () => {
                   path="/miContadorUseReducer"
                   element={<MiContadorConUseReducer />}
                 />
+              </Route>
+              <Route
+                element={
+                  <PrivateRoutes isAuthenticate={userLogged.isAuthenticated} />
+                }
+              >
+                <Route path="/mitodolist" element={<MiTodoList/>} />
               </Route>
             </Route>
           </Routes>

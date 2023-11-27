@@ -11,7 +11,7 @@ const customReducer = (state, action) => {
   }
 };
 
-const CustomList = () => {
+const MiTodoList = () => {
   const [items, dispatch] = useReducer(customReducer, []);
   const [newItem, setNewItem] = useState('');
 
@@ -28,7 +28,7 @@ const CustomList = () => {
 
   return (
     <div>
-      <h2>Custom List</h2>
+      <h2>Lista personalizada</h2>
       <ul>
         {items.map(item => (
           <li key={item.id}>
@@ -43,10 +43,10 @@ const CustomList = () => {
           value={newItem}
           onChange={e => setNewItem(e.target.value)}
         />
-        <button onClick={handleAddItem}>Add tarea</button>
+        <button onClick={handleAddItem}>agregar tarea</button>
       </div>
     </div>
   );
 };
 
-export default CustomList;
+export default MiTodoList;
