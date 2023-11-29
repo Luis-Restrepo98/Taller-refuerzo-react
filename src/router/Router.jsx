@@ -32,7 +32,7 @@ const Router = () => {
   return (
     <AppContext.Provider value={globalState}>
       <ChakraProvider>
-        <BrowserRouter /* basename="/Taller-refuerzo-react" */>
+        <BrowserRouter basename="/Taller-refuerzo-react">
           <Routes>
             <Route element={<Layout />}>
               <Route
