@@ -13,7 +13,7 @@ import userLoggedReducer, {
   userLoggedInitial,
 } from "../components/Reducer/userLoggedReducer";
 import { ChakraProvider } from "@chakra-ui/react";
-import MiTodoList from "../components/MiTodoList/MiTodoList.jsx";
+import MiTodoList from "../components/MiTodoList"
 
 export const AppContext = createContext({});
 
