@@ -37,10 +37,17 @@ const Router = () => {
             <Route element={<Layout />}>
               <Route
                 element={
+                  <PrivateRoutes isAuthenticate={userLogged.isAuthenticated} />
+                }
+              >
+                <Route path="/mitodolist" element={<MiTodoList/>} />
+              </Route>
+              <Route
+                element={
                   <PublicRoutes isAuthenticate={userLogged.isAuthenticated} />
                 }
               >
-                <Route index path="/" element={<MiComponente />} />
+                <Route index element={<MiComponente />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/micomponente" element={<MiComponente />} />
                 <Route path="/micontador" element={<MiContador />} />
@@ -53,13 +60,6 @@ const Router = () => {
                   path="/miContadorUseReducer"
                   element={<MiContadorConUseReducer />}
                 />
-              </Route>
-              <Route
-                element={
-                  <PrivateRoutes isAuthenticate={userLogged.isAuthenticated} />
-                }
-              >
-                <Route path="/mitodolist" element={<MiTodoList/>} />
               </Route>
             </Route>
           </Routes>
