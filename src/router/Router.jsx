@@ -6,7 +6,6 @@ import MisProductos from "../components/miComponente/MisProductos/MisProductos";
 import DetallesProductos from "../components/miComponente/DetallesProducto/DetallesProductos";
 import Layout from "../components/layout/Layout.jsx";
 import MiContadorConUseReducer from "../components/MiContadorConUseReducer/MiContadorConUseReducer.jsx";
-import MiTodoList from "../../src/components/MiTodoList/MiTodoList.jsx"
 import Login from "../components/login/Login.jsx";
 import PublicRoutes from "../../src/router/PublicRoutes.jsx";
 import PrivateRoutes from "../../src/router/PrivatedRoutes.jsx";
@@ -14,6 +13,7 @@ import userLoggedReducer, {
   userLoggedInitial,
 } from "../components/Reducer/userLoggedReducer";
 import { ChakraProvider } from "@chakra-ui/react";
+import MiTodoList from "../components/MiTodoList/MiTodoList.jsx";
 
 export const AppContext = createContext({});
 
@@ -32,7 +32,7 @@ const Router = () => {
   return (
     <AppContext.Provider value={globalState}>
       <ChakraProvider>
-        <BrowserRouter basename="/Taller-refuerzo-react">
+        <BrowserRouter /* basename="/Taller-refuerzo-react" */>
           <Routes>
             <Route element={<Layout />}>
               <Route
