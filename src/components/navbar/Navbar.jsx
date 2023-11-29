@@ -15,6 +15,10 @@ const Navbar = () => {
   const handleComponente = () => {
     navigate("/micomponente");
   };
+
+  const handleMiContadorUseReducer = () => {
+    navigate("/miContadorUseReducer");
+  };
   return (
     <nav>
       <a
@@ -34,6 +38,12 @@ const Navbar = () => {
         href=""
       >
         Mi Componente
+      </a>
+      <a
+        onClick={handleMiContadorUseReducer}
+        href=""
+      >
+        Mi Contador con useReducer
       </a>
     </nav>
   );

@@ -5,6 +5,7 @@ import MiContador from "../components/miComponente/miContador/MiContador";
 import MisProductos from "../components/miComponente/MisProductos/MisProductos";
 import DetallesProductos from "../components/miComponente/DetallesProducto/DetallesProductos";
 import Layout from "../components/layout/Layout.jsx"
+import MiContadorConUseReducer from "../components/MiContadorConUseReducer/MiContadorConUseReducer.jsx";
 
 
 const Router = () => {
@@ -17,6 +18,8 @@ const Router = () => {
           <Route path="/micontador" element={<MiContador />} />
           <Route path="/misproductos" element={<MisProductos />} />
           <Route path="/misproductos/:id" element={<DetallesProductos />} />
+          <Route path="/miContadorUseReducer" element={<MiContadorConUseReducer />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
